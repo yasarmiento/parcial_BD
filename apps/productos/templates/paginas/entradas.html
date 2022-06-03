@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block entradas %}
+
+{% if entradas %}
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Productos</th>
+
+        </tr>
+        </thead>
+
+        {% for i in entradas %}
+        
+        <tbody>
+            <tr class="table-active">
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.fecha}}</td>
+            <td>{{i.cantidad}}</td>
+            <td>{{i.valor}}</td>
+            <td>{{i.productosid}}</td>
+            </tr>
+            <tr>
+        </tbody>
+    {% endfor %}
+  </table>
+
+{% else %}
+<h1>No Existen Registros</h1>
+{% endif %}
+  <a href="{% url 'create' %}" class="btn btn-primary">AÑADIR</a>
+
+{% endblock entradas %}
